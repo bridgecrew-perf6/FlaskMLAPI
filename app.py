@@ -13,8 +13,9 @@ def load_models():
 app = Flask(__name__)
 @app.route('/predict', methods=['GET'])
 def predict():
-    # Stub input features
-    x = 5.963
+    # Define input features
+    request_json = request.get_json()
+    x = float(request_json['input'])
 
     # load model
     model = load_models()
